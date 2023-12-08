@@ -24,7 +24,7 @@
 
 <style scoped>
 header {
-  width: 95%;
+  /* width: 95%; */
   background-color: #e9ff65;
   border-radius: 10px;
   margin: auto;
@@ -48,33 +48,26 @@ header ul {
 }
 
 li {
-  margin: 0 1rem;
+  margin: 0 0.5rem;
 }
 
 li a {
   text-decoration: none;
   color: #252424;
-  font-size: 1.1rem;
   font-weight: bold;
-  background-color: #fff;
-  padding: 1.2rem;
-  border-radius: 10px;
-  border: 2px solid #fff;
-}
-
-li a:hover {
-  border: 2px solid #e125ff;
 }
 
 a.router-link-active {
-  border: 2px solid #e125ff;
+  text-decoration: underline #e125ff 2px;
 }
 
 img {
   height: auto;
   width: auto;
-  max-width: 100px;
-  max-height: 100px;
+  max-width: 60px;
+  max-height: 60px;
+  position: absolute;
+  margin: 1rem 0 0 5rem;
 }
 
 h1 {
@@ -85,7 +78,7 @@ h1 {
 h1 a {
   text-decoration: none;
   color: #252424;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 h1 a:hover {
@@ -96,6 +89,33 @@ h1 a:hover {
 
 .logo_wrapper {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
+}
+
+@media screen and (min-width: 480px) {
+  li a {
+    font-size: 1.1rem;
+    background-color: #fff;
+    padding: 1.2rem;
+    border-radius: 10px;
+    border: 2px solid #fff;
+  }
+
+  li {
+    margin: 0 1rem;
+  }
+
+  li a:hover {
+    border: 2px solid #e125ff;
+  }
+
+  a.router-link-active {
+    text-decoration: none;
+    border: 2px solid #e125ff;
+  }
+
+  h1 a {
+    font-size: 1.6rem;
+  }
 }
 </style>
