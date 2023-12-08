@@ -27,7 +27,7 @@ html {
 
 body {
   margin: 0;
-  background-color: #dedad7;
+  background-color: rgb(107, 109, 109);
 }
 
 #container {

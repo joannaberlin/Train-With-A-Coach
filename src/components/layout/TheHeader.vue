@@ -24,8 +24,7 @@
 
 <style scoped>
 header {
-  /* width: 95%; */
-  background-color: #e9ff65;
+  background-color: #74c1e8;
   border-radius: 10px;
   margin: auto;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.26);
@@ -58,7 +57,7 @@ li a {
 }
 
 a.router-link-active {
-  text-decoration: underline #e125ff 2px;
+  text-decoration: underline #f78513 2px;
 }
 
 img {
@@ -106,12 +105,12 @@ h1 a:hover {
   }
 
   li a:hover {
-    border: 2px solid #e125ff;
+    border: 2px solid #f78513;
   }
 
   a.router-link-active {
     text-decoration: none;
-    border: 2px solid #e125ff;
+    border: 2px solid #f78513;
   }
 
   h1 a {
