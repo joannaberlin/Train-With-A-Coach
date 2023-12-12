@@ -37,4 +37,25 @@ export default {
   background-color: #d232ad;
   color: white;
 }
+
+.female,
+.male,
+.everyone {
+  font-size: 0.8rem;
+  text-transform: lowercase;
+  background-color: white;
+  padding: 0.5rem 0.8rem;
+}
+
+.beginner {
+  font-size: 0.8rem;
+  background-color: rgb(127, 209, 145);
+  padding: 0.5rem 0.8rem;
+}
+
+.advanced {
+  font-size: 0.8rem;
+  background-color: rgb(206, 121, 90);
+  padding: 0.5rem 0.8rem;
+}
 </style>

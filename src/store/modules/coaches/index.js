@@ -13,7 +13,7 @@ export default {
           lastName: 'Cat',
           types: ['strength', 'mobility', 'HIIT'],
           levels: ['beginner', 'advanced'],
-          for: ['female', 'male', 'everybody'],
+          genders: ['female'],
           description:
             "I'm Jo and I've worked as a personal trainer for years. I can help you with setting and reaching your training's goals.",
           hourlyRate: 30,
@@ -24,7 +24,7 @@ export default {
           lastName: 'Balboa',
           types: ['strength'],
           levels: ['advanced'],
-          for: ['female', 'male', 'everybody'],
+          genders: ['female', 'male', 'everyone'],
           description:
             "I'm Rocky and as a personal trainer with over two decades of experience, I can help you with reaching your biggest fitness goals.",
           hourlyRate: 50,

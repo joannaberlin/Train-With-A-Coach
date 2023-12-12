@@ -9,6 +9,8 @@
         :last-name="coach.lastName"
         :rate="coach.hourlyRate"
         :types="coach.types"
+        :genders="coach.genders"
+        :levels="coach.levels"
       ></coach-item>
     </ul>
   </base-card>

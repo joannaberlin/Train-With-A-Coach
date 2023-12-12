@@ -14,6 +14,22 @@
       ></base-badge>
     </div>
     <div>
+      <base-badge
+        v-for="gender in genders"
+        :key="gender"
+        :type="gender"
+        :title="gender"
+      ></base-badge>
+    </div>
+    <div>
+      <base-badge
+        v-for="level in levels"
+        :key="level"
+        :type="level"
+        :title="level"
+      ></base-badge>
+    </div>
+    <div class="buttons_wrapper">
       <base-button mode="outline" link :to="coachContactLink"
         >Contact</base-button
       >
@@ -24,7 +40,7 @@
 
 <script>
 export default {
-  props: ['id', 'firstName', 'lastName', 'types', 'levels', 'for', 'rate'],
+  props: ['id', 'firstName', 'lastName', 'types', 'levels', 'genders', 'rate'],
   computed: {
     fullName() {
       return this.firstName + ' ' + this.lastName;
@@ -63,5 +79,9 @@ h4 {
 
 div {
   margin: 0.5rem 0;
+}
+
+.buttons_wrapper {
+  margin-top: 1.2rem;
 }
 </style>
