@@ -1,5 +1,11 @@
 <template>
   <base-card>
+    <div class="controls">
+      <base-button mode="outline" @click="loadCoaches()">Refresh</base-button>
+      <base-button v-if="!isCoach" link to="/register"
+        >Register as Coach</base-button
+      >
+    </div>
     <ul>
       <coach-item
         v-for="coach in filteredCoaches"
@@ -24,8 +30,17 @@ export default {
     CoachItem,
   },
   computed: {
+    isCoach() {
+      console.log(this.$store.getters['coaches/isCoach']);
+      return this.$store.getters['coaches/isCoach'];
+    },
     filteredCoaches() {
       return this.$store.getters['coaches/coaches'];
+    },
+  },
+  methods: {
+    loadCoaches() {
+      return this.$store.dispatch['coaches/loadCoaches'];
     },
   },
 };
@@ -36,5 +51,10 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
 }
 </style>

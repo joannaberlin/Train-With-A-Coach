@@ -8,9 +8,9 @@ const store = createStore({
     coaches: coachesModule,
     requests: requestsModules,
   },
-  stet() {
+  state() {
     return {
-      userId: 'a1',
+      userId: 'c1',
     };
   },
   getters: {
