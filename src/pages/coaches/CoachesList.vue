@@ -38,9 +38,18 @@ export default {
       return this.$store.getters['coaches/coaches'];
     },
   },
+  created() {
+    this.loadCoaches();
+  },
   methods: {
-    loadCoaches() {
-      return this.$store.dispatch['coaches/loadCoaches'];
+    async loadCoaches(refresh = false) {
+      try {
+        await this.$store.dispatch('coaches/loadCoaches', {
+          forceRefresh: refresh,
+        });
+      } catch (error) {
+        this.error = error.message || 'Something went wrong!';
+      }
     },
   },
 };
