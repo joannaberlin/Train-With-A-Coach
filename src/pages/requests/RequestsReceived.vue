@@ -1,3 +1,7 @@
 <template>
-  <h3>Requests Received</h3>
+  <section>
+    <base-card>
+      <header>Requests Received</header>
+    </base-card>
+  </section>
 </template>
