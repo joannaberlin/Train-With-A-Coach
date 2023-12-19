@@ -1,25 +1,31 @@
 <template>
-  <base-card>
-    <div class="controls">
-      <base-button mode="outline" @click="loadCoaches()">Refresh</base-button>
-      <base-button v-if="!isCoach" link to="/register"
-        >Register as Coach</base-button
-      >
-    </div>
-    <ul>
-      <coach-item
-        v-for="coach in filteredCoaches"
-        :key="coach.id"
-        :id="coach.id"
-        :first-name="coach.firstName"
-        :last-name="coach.lastName"
-        :rate="coach.hourlyRate"
-        :types="coach.types"
-        :genders="coach.genders"
-        :levels="coach.levels"
-      ></coach-item>
-    </ul>
-  </base-card>
+  <section>
+    <base-card>
+      <div class="controls">
+        <base-button mode="outline" @click="loadCoaches()">Refresh</base-button>
+        <base-button v-if="!isCoach" link to="/register"
+          >Register as Coach</base-button
+        >
+      </div>
+      <div v-if="isLoading">
+        <base-spinner></base-spinner>
+      </div>
+      <ul v-else-if="hasCoaches">
+        <coach-item
+          v-for="coach in filteredCoaches"
+          :key="coach.id"
+          :id="coach.id"
+          :first-name="coach.firstName"
+          :last-name="coach.lastName"
+          :rate="coach.hourlyRate"
+          :types="coach.types"
+          :genders="coach.genders"
+          :levels="coach.levels"
+        ></coach-item>
+      </ul>
+      <h3 v-else>No coaches found.</h3>
+    </base-card>
+  </section>
 </template>
 
 <script>
@@ -29,6 +35,11 @@ export default {
   components: {
     CoachItem,
   },
+  data() {
+    return {
+      isLoading: false,
+    };
+  },
   computed: {
     isCoach() {
       console.log(this.$store.getters['coaches/isCoach']);
@@ -37,12 +48,16 @@ export default {
     filteredCoaches() {
       return this.$store.getters['coaches/coaches'];
     },
+    hasCoaches() {
+      return !this.isLoading && this.$store.getters['coaches/hasCoaches'];
+    },
   },
   created() {
     this.loadCoaches();
   },
   methods: {
     async loadCoaches(refresh = false) {
+      this.isLoading = true;
       try {
         await this.$store.dispatch('coaches/loadCoaches', {
           forceRefresh: refresh,
@@ -50,6 +65,7 @@ export default {
       } catch (error) {
         this.error = error.message || 'Something went wrong!';
       }
+      this.isLoading = false;
     },
   },
 };
