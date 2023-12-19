@@ -2,7 +2,8 @@
   <section>
     <base-card>
       <header>Requests Received</header>
-      <ul v-if="hasRequests">
+      <base-spinner v-if="isLoading"></base-spinner>
+      <ul v-else-if="hasRequests">
         <request-item
           v-for="req in receivedRequests"
           :key="req.id"
