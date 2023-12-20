@@ -1,4 +1,7 @@
 <template>
+  <base-dialog :show="!!error" title="An error occured!" @close="handleError">
+    <p>{{ error }}</p>
+  </base-dialog>
   <section>
     <base-card>
       <div class="controls">
@@ -38,6 +41,7 @@ export default {
   data() {
     return {
       isLoading: false,
+      error: null,
     };
   },
   computed: {
@@ -66,6 +70,9 @@ export default {
         this.error = error.message || 'Something went wrong!';
       }
       this.isLoading = false;
+    },
+    handleError() {
+      this.error = null;
     },
   },
 };

@@ -64,6 +64,7 @@ export default {
         message: this.message.val,
         coachId: this.$route.params.id,
       });
+      this.$router.replace('/coaches');
     },
   },
 };
