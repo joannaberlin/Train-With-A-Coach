@@ -1,5 +1,13 @@
 <template>
   <section>
+    <div>
+      <base-dialog
+        :show="!!error"
+        title="An error occured!"
+        @close="handleError"
+        ><p>{{ error }}</p></base-dialog
+      >
+    </div>
     <base-card>
       <header>Requests Received</header>
       <base-spinner v-if="isLoading"></base-spinner>
@@ -25,6 +33,7 @@ export default {
   data() {
     return {
       isLoading: false,
+      error: null,
     };
   },
   computed: {
@@ -47,6 +56,10 @@ export default {
         this.error = error.message || 'Something failed!';
       }
       this.isLoading = false;
+    },
+    handleError() {
+      console.log('dupa');
+      this.error = null;
     },
   },
 };
